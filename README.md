@@ -1,10 +1,7 @@
 #include <iostream>
 #include <string>
-
-using namespace std;    //std:: cout<<
-
+using namespace std; 
 const int MAX_PASSENGERS = 100; //limit in train
-
 int serialNumbers[MAX_PASSENGERS];
 string names[MAX_PASSENGERS];
 string mobileNumbers[MAX_PASSENGERS];
@@ -13,36 +10,28 @@ int trainNumbers[MAX_PASSENGERS];
 int seatNumbers[MAX_PASSENGERS];
 int currentSerialNumber = 1;
 int passengerCount = 0;
-
 // Function to add a passenger
-void addPassenger() {
+void addPassenger() 
+{
     if (passengerCount >= MAX_PASSENGERS) {
         cout << "Maximum passenger limit reached!\n";
         return;
     }
-
     serialNumbers[passengerCount] = currentSerialNumber++;
-    cin.ignore(); // Ignore leftover newline character
-
+    cin.ignore(); 
     cout << "Enter passenger name: ";
     getline(cin, names[passengerCount]);
-
     cout << "Enter mobile number: ";
     getline(cin, mobileNumbers[passengerCount]);
-
     cout << "Enter email: ";
     getline(cin, emails[passengerCount]);
-
     cout << "Enter train number: ";
     cin >> trainNumbers[passengerCount];
-
     cout << "Enter seat number: ";
     cin >> seatNumbers[passengerCount];
-
     passengerCount++;
     cout << "Passenger added successfully! Serial Number: " << serialNumbers[passengerCount - 1] << endl;
 }
-
 // Function to display passenger details
 void displayPassengerDetails(int Arslan) {
     cout << "Serial Number: " << serialNumbers[Arslan] << endl;
@@ -50,15 +39,13 @@ void displayPassengerDetails(int Arslan) {
     cout << "Mobile Number: " << mobileNumbers[Arslan] << endl;
     cout << "Email: " << emails[Arslan] << endl;
     cout << "Train Number: " << trainNumbers[Arslan] << endl;
-    cout << "Seat Number: " << seatNumbers[Arslan] << endl;
+   cout << "Seat Number: " << seatNumbers[Arslan] << endl;
 }
-
 // Function to search for a passenger by serial number
 void searchPassenger() {
     int serial;
     cout << "Enter serial number to search: ";
     cin >> serial; 
-
     for (int i = 0; i < passengerCount; ++i) {
         if (serialNumbers[i] == serial) {
             displayPassengerDetails(i); 
@@ -67,13 +54,11 @@ void searchPassenger() {
     }
     cout << "Passenger not found.\n";
 }
-
 // Function to delete a passenger by serial number
 void deletePassenger() {
     int serial;
     cout << "Enter serial number to delete: ";
     cin >> serial;
-
     for (int i = 0; i < passengerCount; ++i) {
         if (serialNumbers[i] == serial) {
             for (int j = i; j < passengerCount - 1; ++j) {
@@ -91,10 +76,8 @@ void deletePassenger() {
     }
     cout << "Passenger not found.\n";
 }
-
 int main() {
-    int choice;
-    
+    int choice;   
         /*do while loop; 
     do{
         block of statements;
@@ -108,8 +91,8 @@ int main() {
         cout << "4. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice; //1
-
-        switch (choice) {
+        switch (choice) 
+        {
             case 1:
                 addPassenger();
                 break;
